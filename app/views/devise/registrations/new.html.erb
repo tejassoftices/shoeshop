@@ -1,0 +1,67 @@
+<div class='mb-5'>
+        <div class="hero-wrap hero-bread"
+            style="background-image: url(<%= asset_path 'bg_6.jpg'%>); z-index: -1;">      
+          <div class="container">
+            <div
+              class="row no-gutters slider-text align-items-center justify-content-center"
+            >
+              <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs">
+                    <span class="mr-2"><%= link_to 'home', home_index_path%></span>
+                  <span>Registration</span>
+                </p>
+                <h1 class="mb-0 bread">Registration</h1>
+              </div>
+            </div>
+          </div>      
+        </div>
+
+      <%# section start %>
+  <section class="mt-5" style="background-color:">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-9 col-lg-4 col-xl-5">
+            <%= render "devise/shared/error_messages", resource: resource, class:"alert alert-warning"%>                                 
+
+             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw1.webp"
+                class="img-fluid" alt="Sample image">
+
+          </div>
+
+          <div class="col-md-8 cols-lg-8 col-xl-4 offset-xl-0">
+             <div class="form-outline mb-4">
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                      <%= render "devise/shared/error_messages", resource: resource %>
+
+                      <div class="field">
+                        <%= f.label :email, class:'form-label', for:'form3Example4', value:'Email'%><br />
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control form-control-lg', placeholder:'Enter Your Email Address'%>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :password,class:'form-lable', for:'form3Example4', value:'Password' %>
+                        <% if @minimum_password_length %>
+                        <em>(<%= @minimum_password_length %> characters minimum)</em>
+                        <% end %><br />
+                        <%= f.password_field :password, autocomplete: "new-password",class:'form-control form-control-lg', placeholder:'Enter The Password' %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :password_confirmation, class:'form-lable', for:'form3Example4', value:'Confirm Password' %><br />
+                        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control form-control-lg', placeholder:'Confirm Your Password'%>
+                      </div>
+
+                      <div class="actions mt-4">
+                        <%= f.submit "Sign up", class:"btn btn-primary btn-lg", style:"padding-left: 2.5rem; padding-right: 2.5rem;" %>
+                        <%= link_to "Log in", new_session_path(resource_name), class:"btn btn-primary btn-lg", style:"padding-left: 2.5rem; padding-right: 2.5rem;" %><br />      
+                      </div>
+
+                    <% end %>
+
+             </div>
+          </div>
+      </div> 
+    </div>      
+  </section>    
+</div>
+
